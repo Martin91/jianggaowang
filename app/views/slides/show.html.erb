@@ -1,9 +1,38 @@
-<div class="row">
+<div class="row slide-page">
   <div class="col-md-8">
     <div class="pages-container">
       <%= render 'pages' %>
     </div>
+
+    <div class="slide-infos">
+      <h4>WebRTC技术初探</h4>
+      <p>简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识。</p>
+    </div>
   </div>
 
-  <div class="col-md-4">Something</div>
+  <div class="col-md-4 slide-page-sidebar">
+    <div class="author-infos">
+      <a href="" class="author-avatar-link">
+        <%= image_tag 'demo/avatar.jpeg', class: 'author-avatar img-rounded' %>
+      </a>
+      <h4><%= link_to 'Martin', '#martin', class: 'author-name' %></h4>
+
+      <div class="clearfix"></div>
+
+      <div class="share-panel">
+        <ul class="list-group">
+          <li class="list-group-item"><a href="">分类：计算机</a></li>
+          <li class="list-group-item"><a href="">收藏</a></li>
+          <li class="list-group-item"><a href="">赞一个</a></li>
+        </ul>
+      </div>
+
+      <div class="share-panel">
+        <ul class="list-group">
+          <li class="list-group-item"><a href="">分享到新浪博客</a></li>
+          <li class="list-group-item"><a href="">复制链接</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
