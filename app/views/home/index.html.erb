@@ -1,2 +1,127 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="col-md-3 categories-sidebar">
+  <h4>浏览</h4>
+
+  <%= render 'shared/categories_list' %>
+</div>
+
+<div class="col-md-9">
+  <div id='computing' class='category-featured'>
+    <div>
+      <span class='category-title'>计算机</span>
+
+      <span class="more">
+        <a href="">更多 <span class="glyphicon glyphicon-chevron-right"></span></a>
+      </span>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/1.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/2.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/3.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='design' class='category-featured'>
+    <div>
+      <span class='category-title'>艺术设计</span>
+
+      <span class="more">
+        <a href="">更多 <span class="glyphicon glyphicon-chevron-right"></span></a>
+      </span>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/5.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/7.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/12.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='business' class='category-featured'>
+    <div>
+      <span class='category-title'>商务金融</span>
+
+      <span class="more">
+        <a href="">更多 <span class="glyphicon glyphicon-chevron-right"></span></a>
+      </span>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/8.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/9.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag 'demo/11.png', class: 'img-rounded' %>
+          <div class="caption text-center">
+            <h3><a href="">WebRTC技术初探</a></h3>
+            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
