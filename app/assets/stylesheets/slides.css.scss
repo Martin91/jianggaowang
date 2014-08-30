@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .slide-page {
+  .operations {
+    background-color: black;
+    padding: 5px;
+  }
+
+  .shares {
+    display: none;
+    background-color: rgba(222, 222, 222, 0.6);
+    padding: 20px;
+    border-bottom: 1px solid gray;
+    input {
+      width: 50%;
+    }
+  }
+
   .slide-infos {
     background-color: rgba(222, 222, 222, 0.6);
     padding: 20px;
@@ -23,9 +38,12 @@
   }
 
   .author-infos {
-    h4 {
+    .author {
       display: inline-block;
       margin-left: 5px;
+      h4 {
+        margin: 0;
+      }
     }
     .author-avatar {
       max-width: 60px;
