@@ -38,3 +38,12 @@ footer {
     padding-right: 0;
   }
 }
+
+.pagination {
+  li.active {
+    a {
+      background-color: #4fc1e9;
+      border-color: #4fc1e9;
+    }
+  }
+}
