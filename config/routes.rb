@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :slides, only: [:show]
+
   resources :categories, only: [:show]
 
   root 'home#index'
