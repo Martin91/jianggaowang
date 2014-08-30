@@ -8,7 +8,7 @@
 </head>
 <body>
   <%= render 'shared/header' %>
-  <%= yield %>
+  <div class="container-fluid" id='content'><%= yield %></div>
   <%= render 'shared/footer' %>
 
   <%= yield :additional_javascript %>
