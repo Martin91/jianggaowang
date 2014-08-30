@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'page:reloaded', ->
   $('.pdf-pages').each ->
     Galleria.run '.pdf-pages',
       responsive:true
