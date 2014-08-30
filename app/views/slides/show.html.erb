@@ -4,6 +4,33 @@
       <%= render 'pages' %>
     </div>
 
+    <div class="operations">
+      <a href="" class='btn btn-sm btn-primary'>
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        赞(34)
+      </a>
+      <a href="" class='btn btn-sm btn-primary'>
+        <span class="glyphicon glyphicon-pushpin"></span>
+        收藏
+      </a>
+
+      <a href="" class='btn btn-sm btn-danger pull-right share-btn'>
+        <span class="glyphicon glyphicon-share"></span>
+        分享
+      </a>
+    </div>
+    <div class="shares">
+      <p>
+        <a href=""><%= image_tag 'sina.png' %>微博分享</a>
+        <a href="" style='margin-left: 30px;'><span class="glyphicon glyphicon-cloud-download">下载PDF</span></a>
+      </p>
+      <p>
+        复制页面链接：
+        <input type="text" value="<%= request.url %>" disabled>
+        <button class='btn btn-sm'><span class="glyphicon glyphicon-link"></span>复制</button>
+      </p>
+    </div>
+
     <div class="slide-infos">
       <h4>WebRTC技术初探</h4>
       <p>简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识。</p>
@@ -12,25 +39,23 @@
 
   <div class="col-md-4 slide-page-sidebar">
     <div class="author-infos">
-      <a href="" class="author-avatar-link">
-        <%= image_tag 'demo/avatar.jpeg', class: 'author-avatar img-rounded' %>
-      </a>
-      <h4><%= link_to 'Martin', '#martin', class: 'author-name' %></h4>
+      <div class="col-md-3">
+        <a href="" class="author-avatar-link">
+          <%= image_tag 'demo/avatar.jpeg', class: 'author-avatar img-rounded' %>
+        </a>
+      </div>
+      <div class='author col-md-8'>
+        <h4><%= link_to 'Martin', '#martin', class: 'author-name' %></h4>
+        <div class="author-bio">
+          Ruby on Rails开发者，热爱开源技术，热爱前端，热爱web
+        </div>
+      </div>
 
       <div class="clearfix"></div>
 
       <div class="share-panel">
         <ul class="list-group">
           <li class="list-group-item"><a href="">分类：计算机</a></li>
-          <li class="list-group-item"><a href="">收藏</a></li>
-          <li class="list-group-item"><a href="">赞一个</a></li>
-        </ul>
-      </div>
-
-      <div class="share-panel">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="">分享到新浪博客</a></li>
-          <li class="list-group-item"><a href="">复制链接</a></li>
         </ul>
       </div>
     </div>
