@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jianggao</title>
+  <title>讲稿网 <%= yield :title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'shared/header' %>
+  <%= yield %>
+  <%= render 'shared/footer' %>
 
-<%= yield %>
-
+  <%= yield :additional_javascript %>
 </body>
 </html>
