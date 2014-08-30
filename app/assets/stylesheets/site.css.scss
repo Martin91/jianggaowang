@@ -2,3 +2,22 @@ body {
   font-family: 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
   background-image: image-url('ricepaper.png');
 }
+
+header {
+  .navbar {
+    border-radius: 0;
+    padding: 0 10%;
+
+    .navbar-brand-desc {
+      font-size: 70%;
+    }
+
+    .glyphicon {
+      margin-right: 5px;
+    }
+
+    .form-search .search-query {
+      border-radius: 4px;
+    }
+  }
+}
