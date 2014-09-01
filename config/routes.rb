@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/signup' => 'users#new'
   resources :users, only: [:show, :new, :create]
 
   resources :slides, only: [:show]
