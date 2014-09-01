@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :users, only: [:show]
+
+  get '/login' => 'sessions#new'
+  delete '/logout' => 'sessions#destroy'
+  resources :sessions, only: [:create]
+
+  get '/signup' => 'users#new'
+  resources :users, only: [:show, :create]
 
   resources :slides, only: [:show]
 

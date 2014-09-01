@@ -33,7 +33,25 @@ gem 'bootflat-rails', '~> 0.1.9'
 gem 'sass-rails', :git => 'https://github.com/zakelfassi/sass-rails'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+group :development do
+  gem 'quiet_assets', '~> 1.0.3'
+
+  gem 'better_errors', '~> 2.0.0'
+
+  gem 'binding_of_caller', '~> 0.7.2'
+
+  gem 'thin', '~> 1.6.2'
+end
+
+group :development, :test do
+  gem 'pry', '~> 0.10.1'
+
+  gem 'pry-rails', '~> 0.3.2'
+
+  gem 'pry-debugger', '~> 0.2.3'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
