@@ -48,3 +48,9 @@ footer {
     }
   }
 }
+
+.field_with_errors {
+  input.form-control {
+    border-color: #DA4453;
+  }
+}
