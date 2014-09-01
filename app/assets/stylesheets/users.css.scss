@@ -6,6 +6,14 @@
     text-align: center;
   }
 
+  #error_explanation {
+    ul {
+      li {
+        color: #DA4453;
+      }
+    }
+  }
+
   .input-group {
     margin-bottom: 20px;
 
