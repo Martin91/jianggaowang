@@ -67,3 +67,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'sutui', github: 'beansmile/sutui'
