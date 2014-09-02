@@ -43,6 +43,11 @@ group :development do
   gem 'binding_of_caller', '~> 0.7.2'
 
   gem 'thin', '~> 1.6.2'
+
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'capistrano-bundler', '~> 1.1.3'
+  gem 'capistrano-rails', '~> 1.1.2'
 end
 
 group :development, :test do
