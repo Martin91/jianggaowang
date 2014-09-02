@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/beansmile/sutui.git
-  revision: d23450cf6ce6f44c368984ab8a9167cc109efa93
+  revision: 99dfb36f71a76c224151f2aeb05c4a9660c38c55
   specs:
     sutui (0.0.1)
       typhoeus (~> 0.6.9)
