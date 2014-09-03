@@ -18,4 +18,8 @@ class SlidesController < ApplicationController
     @uptoken = Qiniu::Auth.generate_uptoken(put_policy)
     @resource_key = Time.now.to_i  # use timestamp as resource_key
   end
+
+  def uploaded
+
+  end
 end
