@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20140903135417) do
     t.string   "description"
     t.string   "filename"
     t.integer  "user_id"
+    t.integer  "category_id"
     t.boolean  "downloadable"
     t.datetime "created_at"
     t.datetime "updated_at"
