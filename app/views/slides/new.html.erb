@@ -1,0 +1,19 @@
+<h3>上传讲稿</h3>
+
+<form method="post" action="http://upload.qiniu.com/"
+ enctype="multipart/form-data" id='upload_form' data-remote='true'>
+  <input name="key" type="hidden" value='<%= @resource_key %>'>
+  <input name="token" type="hidden" value="<%= @uptoken %>">
+
+  <input name="x:title" type="text" placeholder='讲稿标题' class='form-control'>
+  <textarea name="x:description" placeholder='讲稿简介' class='form-control'></textarea>
+
+  <input name="file" type="file" id='file' />
+
+  <input name="x:downloadable" type="checkbox">
+  <label for="x:downloadable">允许其他用户下载</label>
+
+  <br>
+
+  <input type="submit" value='上传' data-disable-with='正在上传' class='btn btn-primary'>
+</form>
