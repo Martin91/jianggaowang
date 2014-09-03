@@ -1,18 +1,7 @@
 <ul class="categories-list">
   <li><a href="">所有讲稿</a></li>
   <li><a href="">热门讲稿</a></li>
-  <li><a href="">书籍</a></li>
-  <li><a href="">商务</a></li>
-  <li><a href="">设计创意</a></li>
-  <li><a href="">教育培训</a></li>
-  <li><a href="">娱乐生活</a></li>
-  <li><a href="">金融财务</a></li>
-  <li><a href="">游戏</a></li>
-  <li><a href="">健康养生</a></li>
-  <li><a href="">DIY</a></li>
-  <li><a href="">摄影摄像</a></li>
-  <li><a href="">编程</a></li>
-  <li><a href="">研究调研</a></li>
-  <li><a href="">科学技术</a></li>
-  <li><a href="">旅游</a></li>
+  <% Category.all.each do |category| %>
+    <li><%= link_to category.name, category %></li>
+  <% end %>
 </ul>
