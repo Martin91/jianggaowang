@@ -68,3 +68,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'sutui', github: 'beansmile/sutui'
+
+gem 'qiniu', '~> 6.2.1'
