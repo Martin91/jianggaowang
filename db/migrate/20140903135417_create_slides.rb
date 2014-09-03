@@ -5,6 +5,7 @@ class CreateSlides < ActiveRecord::Migration
       t.string :description
       t.string :filename
       t.integer :user_id
+      t.integer :category_id
       t.boolean :downloadable
 
       t.timestamps
