@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   resources :users, only: [:show, :create]
 
-  resources :slides, only: [:show]
+  resources :slides, only: [:show, :new, :create]
 
   resources :categories, only: [:show]
 
