@@ -9,7 +9,15 @@ $ ->
 # Animated page transitions
 # From https://coderwall.com/p/t5ghhw
 $(document).on 'page:change', ->
-  $('#content').addClass 'animated fadeIn'
+  if $('#animated').length
+    $animateEle = $('#animated')
+  else
+    $animateEle = $('#content')
+  $animateEle.addClass 'animated fadeIn'
 
 $(document).on 'page:fetch', ->
-  $('#content').addClass += 'animated fadeOut'
+  if $('#animated').length
+    $animateEle = $('#animated')
+  else
+    $animateEle = $('#content')
+  $animateEle.addClass += 'animated fadeOut'
