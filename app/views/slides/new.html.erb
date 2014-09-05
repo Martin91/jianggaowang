@@ -10,6 +10,9 @@
 
   <input name="file" type="file" id='file' />
 
+  <label for="x:category_id">选择分类</label>
+  <%= select_tag 'x:category_id', options_from_collection_for_select(Category.all, :id, :name, Category.first) %>
+
   <input name="x:downloadable" type="checkbox">
   <label for="x:downloadable">允许其他用户下载</label>
 
