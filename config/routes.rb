@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources 'notifications', only: [] do
     collection do
       post :slide_uploaded
+      post :persistance_finished
     end
   end
 
