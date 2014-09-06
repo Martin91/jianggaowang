@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources 'notifications', only: [] do
+    collection do
+      post :slide_uploaded
+    end
+  end
+
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
   resources :sessions, only: [:create]
