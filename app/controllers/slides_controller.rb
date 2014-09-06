@@ -12,11 +12,11 @@ class SlidesController < ApplicationController
       "slide[user_id]=#{current_user.id}",
       "slide[title]=$(x:title)",
       "slide[description]=$(x:description)",
-      "slide[downloadable]=$(x:downloadable)"
+      "slide[downloadable]=$(x:downloadable)",
+      "slide[category_id]=$(x:category_id)"
     ].join('&')
 
     @uptoken = Qiniu::Auth.generate_uptoken(put_policy)
-    @resource_key = Time.now.to_i  # use timestamp as resource_key
   end
 
   def uploaded
