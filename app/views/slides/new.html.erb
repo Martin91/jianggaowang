@@ -1,6 +1,6 @@
 <h3>上传讲稿</h3>
 
-<div class="row">
+<div class="row slide-form-container">
   <%= form_tag 'http://upload.qiniu.com/', method: :post, id: 'upload_form', multipart: true do %>
     <div class="col-md-6">
       <input name="token" type="hidden" value="<%= @uptoken %>">
