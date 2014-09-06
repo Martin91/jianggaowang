@@ -52,7 +52,8 @@ class SlidesController < ApplicationController
       "slide[title]=$(x:title)",
       "slide[description]=$(x:description)",
       "slide[downloadable]=$(x:downloadable)",
-      "slide[category_id]=$(x:category_id)"
+      "slide[category_id]=$(x:category_id)",
+      "mime_type=$(mimeType)"
     ].join('&')
 
     @uptoken = Qiniu::Auth.generate_uptoken(put_policy)

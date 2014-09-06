@@ -3,6 +3,10 @@ class NotificationsController < ApplicationController
   before_action :verify_qiniu_request
 
   def slide_uploaded
+    unless params[:mime_type] == 'application/pdf'
+      return render json: {status: 'failed', errors: '不支持的文件格式'}
+    end
+
     slide = Slide.new params[:slide].permit!
     if slide.save
       render json: {status: 'success', slide: slide}
