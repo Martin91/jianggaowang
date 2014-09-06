@@ -5,11 +5,9 @@ class NotificationsController < ApplicationController
   def slide_uploaded
     slide = Slide.new params[:slide].permit!
     if slide.save
-      flash[:success] = "讲稿#{slide.title}上传完成，正在进行处理中！"
-      redirect_to slide_path(slide)
+      render json: {status: 'success', slide: slide}
     else
-      flash[:danger] = "讲稿上传失败，失败原因：#{slide.errors}"
-      redirect_to new_slide_path
+      render json: {status: 'failed', errors: slide.errors}
     end
   end
 
