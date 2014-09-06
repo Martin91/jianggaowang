@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140906082541) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.boolean  "downloadable"
-    t.integer  "persistent_id"
+    t.string   "persistent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

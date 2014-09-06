@@ -1,5 +1,5 @@
 class AddPersistentIdToSlides < ActiveRecord::Migration
   def change
-    add_column :slides, :persistent_id, :integer, after: :downloadable
+    add_column :slides, :persistent_id, :string, after: :downloadable
   end
 end
