@@ -15,8 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require icheck.min
-//  bootflat_icheck will apply icheck on all checkboxes and radio buttons
-//= require bootflat_icheck
 //= require galleria
 //= require galleria.classic
 //= require_tree .
