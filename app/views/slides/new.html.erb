@@ -2,7 +2,6 @@
 
 <form method="post" action="http://upload.qiniu.com/"
  enctype="multipart/form-data" id='upload_form' data-remote='true'>
-  <input name="key" type="hidden" value='<%= @resource_key %>'>
   <input name="token" type="hidden" value="<%= @uptoken %>">
 
   <input name="x:title" type="text" placeholder='讲稿标题' class='form-control'>

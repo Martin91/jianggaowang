@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   resources :users, only: [:show, :create]
 
-  resources :slides, only: [:show, :new, :create] do
-    collection do
-      post 'uploaded', as: :qiniu_upload_callback
-    end
-  end
+  resources :slides, only: [:show, :new, :create]
 
   resources :categories, only: [:show]
 
