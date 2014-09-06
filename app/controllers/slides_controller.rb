@@ -5,8 +5,10 @@ class SlidesController < ApplicationController
   end
 
   def new
+    host = Rails.application.secrets['host'] || request.env["HTTP_HOST"]
+
     put_policy = Qiniu::Auth::PutPolicy.new Qiniu::Bucket
-    put_policy.callback_url = request.env["HTTP_HOST"] + qiniu_upload_callback_slides_path
+    put_policy.callback_url = host + slide_uploaded_notifications_path
     put_policy.callback_body = [
       "slide[filename]=$(fname)",
       "slide[user_id]=#{current_user.id}",
