@@ -6,6 +6,7 @@ class SlidesController < ApplicationController
 
   def new
     host = Rails.application.secrets['host'] || request.env["HTTP_HOST"]
+    host = "http://" if host.index('http') != 0
 
     put_policy = Qiniu::Auth::PutPolicy.new Qiniu::Bucket
     put_policy.callback_url = host + slide_uploaded_notifications_path
