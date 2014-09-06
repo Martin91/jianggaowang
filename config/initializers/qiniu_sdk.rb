@@ -2,3 +2,4 @@ Qiniu.establish_connection! :access_key => Rails.application.secrets[:qiniu]['ac
                             :secret_key => Rails.application.secrets[:qiniu]['secret_key']
 Qiniu::Bucket = Rails.application.secrets[:qiniu]['bucket']
 Qiniu::MPSQueue = Rails.application.secrets[:qiniu]['mps_queue']
+Qiniu::NotificationHost = Rails.application.secrets[:host]
