@@ -1,21 +1,40 @@
 <h3>上传讲稿</h3>
 
-<form method="post" action="http://upload.qiniu.com/"
- enctype="multipart/form-data" id='upload_form' data-remote='true'>
-  <input name="token" type="hidden" value="<%= @uptoken %>">
+<div class="row">
+  <%= form_tag 'http://upload.qiniu.com/', method: :post, id: 'upload_form', multipart: true do %>
+    <div class="col-md-6">
+      <input name="token" type="hidden" value="<%= @uptoken %>">
 
-  <input name="x:title" type="text" placeholder='讲稿标题' class='form-control'>
-  <textarea name="x:description" placeholder='讲稿简介' class='form-control'></textarea>
+      <div class="form-group">
+        <label for="x:title">请告诉我们您的讲稿的标题</label>
+        <input name="x:title" type="text" placeholder='讲稿标题' class='form-control'>
+      </div>
 
-  <input name="file" type="file" id='file' />
+      <div class="form-group">
+        <label for="x:description">请简单介绍您的讲稿的主要内容</label>
+        <textarea name="x:description" placeholder='讲稿简介' class='form-control'></textarea>
+      </div>
+    </div>
 
-  <label for="x:category_id">选择分类</label>
-  <%= select_tag 'x:category_id', options_from_collection_for_select(Category.all, :id, :name, Category.first) %>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="file">选择文件上传</label>
+        <input name="file" type="file" id='file' class: 'form-control' />
+      </div>
 
-  <input name="x:downloadable" type="checkbox">
-  <label for="x:downloadable">允许其他用户下载</label>
+      <div class="form-group">
+        <label for="x:category_id">选择分类</label>
+        <%= select_tag 'x:category_id', options_from_collection_for_select(Category.all, :id, :name, Category.first), class: 'form-control' %>
+      </div>
 
-  <br>
+      <div class="form-group">
+        <input name="x:downloadable" type="checkbox">
+        <label for="x:downloadable">允许其他用户下载</label>
+      </div>
+    </div>
 
-  <input type="submit" value='上传' data-disable-with='正在上传' class='btn btn-primary'>
-</form>
+    <div style='text-align: center;'>
+      <input type="submit" id='upload' value='上传' data-disable-with='正在上传' class='btn btn-primary btn-lg'>
+    </div>
+  <% end %>
+</div>
