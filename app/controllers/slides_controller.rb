@@ -56,6 +56,8 @@ class SlidesController < ApplicationController
       "mime_type=$(mimeType)"
     ].join('&')
 
+    put_policy.mime_limit = 'application/pdf'
+
     @uptoken = Qiniu::Auth.generate_uptoken(put_policy)
   end
 end
