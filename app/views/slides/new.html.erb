@@ -4,6 +4,7 @@
   <%= form_tag 'http://upload.qiniu.com/', method: :post, id: 'upload_form', multipart: true do %>
     <div class="col-md-6">
       <input name="token" type="hidden" value="<%= @uptoken %>">
+      <input name="key" type="hidden" value=<%= @resource_key %>>
 
       <div class="form-group">
         <label for="x:title">请告诉我们您的讲稿的标题</label>
