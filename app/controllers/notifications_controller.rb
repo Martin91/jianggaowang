@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :verify_qiniu_request
+  before_action :verify_qiniu_request, only: [:slide_uploaded]
 
   def slide_uploaded
     unless params[:mime_type] == 'application/pdf'
@@ -13,6 +13,14 @@ class NotificationsController < ApplicationController
     else
       render json: {status: 'failed', errors: slide.errors}
     end
+  end
+
+  # TODO:
+  #   1. use :id in request to mark slide persistent state
+  #   2. use a sercet token to verify valid requests, for example:
+  #     "#{Qiniu::NotificationHost}/notifications/persistance_finished/:secret_token"
+  def persistance_finished
+    render json: {status: 'confirmed'}
   end
 
   private
