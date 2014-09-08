@@ -7,13 +7,17 @@
 }
 
 .shares {
-  display: none;
-  background-color: rgba(222, 222, 222, 0.6);
   padding: 20px;
   border-bottom: 1px solid gray;
   input {
     width: 50%;
   }
+}
+
+iframe {
+  position: relative;
+  top: 5px;
+  height: 22px;
 }
 
 .slide-infos {
@@ -59,10 +63,6 @@
 
   .share-panel {
     margin-top: 20px;
-
-    a {
-      color: rgb(67, 74, 84);
-    }
   }
 }
 
