@@ -1,0 +1,53 @@
+<div class="row profile-page">
+  <div class="col-md-8">
+    <div class="row" id='animated'>
+      <% @slides.each do |slide| %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag slide_first_or_default_preview_url(slide), class: 'img-rounded' %>
+            <div class="caption text-center">
+              <h3><%= link_to slide.title, slide %></h3>
+              <p><%= slide.description %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= paginate @slides %>
+  </div>
+
+  <div class="col-md-4 profile-page-sidebar">
+    <div class="author-infos">
+      <div class="col-md-3">
+        <%= link_to profile_path, class: 'author-avatar-link' do %>
+          <%= image_tag current_user.avatar.url, class: 'author-avatar img-rounded' %>
+        <% end %>
+      </div>
+      <div class='author col-md-8'>
+        <h4><%= link_to current_user.name, profile_path, class: 'author-name' %></h4>
+        <div class="author-bio">
+          Ruby on Rails开发者，热爱开源技术，热爱前端，热爱web
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="share-panel">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h4 class="list-group-item-heading">详细资料</h4>
+            <div class="list-group-item-text">
+              <p>
+                总的讲稿数：<%= current_user.slides.count %>
+              </p>
+              <p>
+                加入讲稿网于：<%= l current_user.created_at.to_date, format: :long %>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
