@@ -50,6 +50,8 @@ gem 'delayed_job_active_record', '~> 4.0.2'
 gem 'carrierwave', '~> 0.10.0'
 gem 'carrierwave-qiniu', '~> 0.1.3'
 
+gem 'kaminari', '~> 0.16.1'
+
 group :development do
   gem 'quiet_assets', '~> 1.0.3'
 
