@@ -10,7 +10,7 @@ class Slide < ActiveRecord::Base
     bucket = Qiniu::Bucket
 
     pfops = (1..retrieve_total_pages).map do |page|
-      target_key = filename.split('.')[0..-2].join('.') + "-#{page}.jpg"
+      target_key = Digest::MD5.hexdigest(filename) + "-#{page}.jpg"
 
       "odconv/jpg/page/#{page}/density/150/resize/800|" +
       "watermark/2/text/#{watermark_text}/fontsize/500/dissolve/60|" +
