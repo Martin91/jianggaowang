@@ -6,35 +6,15 @@
       </div>
 
       <div class="operations">
-        <a href="" class='btn btn-sm btn-primary'>
-          <span class="glyphicon glyphicon-thumbs-up"></span>
-          赞(34)
-        </a>
-        <a href="" class='btn btn-sm btn-primary'>
+        <a href="" class='btn btn-sm btn-primary pull-right' style='margin-left: 5px;'>
           <span class="glyphicon glyphicon-pushpin"></span>
           收藏
         </a>
-
-        <a href="" class='btn btn-sm btn-danger pull-right share-btn'>
-          <span class="glyphicon glyphicon-share"></span>
-          分享
+        <a href="" class='btn btn-sm btn-primary pull-right'>
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+          赞(34)
         </a>
-      </div>
-      <div class="shares">
-        <p>
-          <wb:share-button appkey="2hurr5" addition="number" type="button" ralateUid="5283496115" default_text="我刚在讲稿网(<%= slide_url(@slide) %>)发现了一个很不错的讲稿《<%= @slide.title %>》，作者是<%= @slide.user.try(:name) %>，分享给各位朋友！" pic="<%= resource_url(@slide.previews.first.filename) %>"></wb:share-button>
-
-          <% if @slide.downloadable %>
-            <%= link_to resource_url(@slide.filename), style: 'margin-left: 30px' do %>
-              <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
-            <% end %>
-          <% end %>
-        </p>
-        <p>
-          复制页面链接：
-          <input type="text" value="<%= request.url %>" disabled>
-          <button class='btn btn-sm'><span class="glyphicon glyphicon-link"></span>复制</button>
-        </p>
+        <div class="clearfix"></div>
       </div>
     <% else %>
       <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
@@ -65,10 +45,52 @@
       <div class="share-panel">
         <ul class="list-group">
           <li class="list-group-item">
-            <%= link_to @category do %>
-              分类：<%= @category.try(:name) %>
-            <% end %>
+            <h4 class="list-group-item-heading">讲稿详情</h4>
+            <div class="list-group-item-text">
+              <p>
+                标题：
+                《<%= @slide.title %>》
+              </p>
+              <p>
+                分类：
+                <%= link_to @category do %>
+                  <%= @category.try(:name) %>
+                <% end %>
+              </p>
+              <p>
+                总页数：
+                <%= @slide.previews.any? ? @slide.previews.count : @slide.retrieve_total_pages %>
+              </p>
+              <p>
+                成功发表于：<%= l @slide.created_at, format: :long %>
+              </p>
+              <p>
+                是否支持原版PDF下载：<%= @slide.downloadable ? "是" : "否" %>
+              </p>
+            </div>
           </li>
+
+          <% if @slide.downloadable || @slide.previews.any? %>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">分享讲稿</h4>
+              <div class="list-group-item-text">
+                <% if @slide.previews.any? %>
+                  <p>
+                    新浪微博分享
+                    <wb:share-button appkey="2hurr5" addition="number" type="button" ralateUid="5283496115" default_text="我在讲稿网(<%= slide_url(@slide) %>)发现了一个很不错的讲稿《<%= @slide.title %>》，作者是<%= @slide.user.try(:name) %>，分享给各位朋友！" pic="<%= resource_url(@slide.previews.first.filename) %>"></wb:share-button>
+                  </p>
+                <% end %>
+
+                <% if @slide.downloadable %>
+                  <p>
+                    <%= link_to resource_url(@slide.filename) do %>
+                      <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
+                    <% end %>
+                  </p>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
