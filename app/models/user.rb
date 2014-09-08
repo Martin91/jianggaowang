@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates :name, :email, presence: true, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password, length: { minimum: 8 }
+
+  def friendly_bio
+    bio || "这个讲师暂未留下任何自我介绍"
+  end
 end
