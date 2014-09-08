@@ -24,7 +24,9 @@ class Slide < ActiveRecord::Base
     response = Qiniu::Fop::Persistance.pfop pfop_policy
     persistent_id = response[1]["persistentId"]
 
-    update_column :persistent_id, persistent_id if persistent_id
+    if persistent_id
+      update_attributes persistent_id: persistent_id, persistent_state: "transforming"
+    end
   end
 
   def retrieve_total_pages
