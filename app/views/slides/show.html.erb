@@ -22,7 +22,8 @@
       </div>
       <div class="shares">
         <p>
-          <a href=""><%= image_tag 'sina.png' %>微博分享</a>
+          <wb:share-button appkey="2hurr5" addition="number" type="button" ralateUid="5283496115" default_text="我刚在讲稿网(<%= slide_url(@slide) %>)发现了一个很不错的讲稿《<%= @slide.title %>》，作者是<%= @slide.user.try(:name) %>，分享给各位朋友！" pic="<%= resource_url(@slide.previews.first.filename) %>"></wb:share-button>
+
           <% if @slide.downloadable %>
             <%= link_to resource_url(@slide.filename), style: 'margin-left: 30px' do %>
               <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF

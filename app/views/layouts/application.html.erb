@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html xmlns:wb=“http://open.weibo.com/wb”>
 <html>
 <head>
   <title>讲稿网 <%= yield :title %></title>
@@ -6,6 +6,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
