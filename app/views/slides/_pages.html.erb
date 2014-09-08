@@ -1,5 +1,5 @@
 <div class="pdf-pages">
-  <% 0.upto(12).each do |page| %>
-    <%= image_tag "demo.jpg" %>
+  <% slide.previews.each do |preview| %>
+    <%= image_tag resource_url(preview.filename) %>
   <% end %>
 </div>
