@@ -35,6 +35,13 @@ gem 'sass-rails', :git => 'https://github.com/zakelfassi/sass-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Daemons provides an easy way to wrap existing ruby scripts (for example a
+# self-written server) to be run as a daemon and to be controlled by simple
+# start/stop/restart commands
+# http://daemons.rubyforge.org/
+# Note: daemons in this repo is used to work with delayed_job
+gem 'daemons', '~> 1.1.9'
+
 # ActiveRecord backend for Delayed::Job
 # Delayed::Job: Database based asynchronous priority queue system
 # https://github.com/collectiveidea/delayed_job
