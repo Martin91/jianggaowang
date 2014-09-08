@@ -22,7 +22,11 @@
     <div class="shares">
       <p>
         <a href=""><%= image_tag 'sina.png' %>微博分享</a>
-        <a href="" style='margin-left: 30px;'><span class="glyphicon glyphicon-cloud-download">下载PDF</span></a>
+        <% if @slide.downloadable %>
+          <%= link_to resource_url(@slide.filename), style: 'margin-left: 30px' do %>
+            <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
+          <% end %>
+        <% end %>
       </p>
       <p>
         复制页面链接：
