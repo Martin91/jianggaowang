@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :profile, only: [:show, :update, :edit]
+
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
   resources :sessions, only: [:create]
