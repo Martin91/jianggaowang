@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908014632) do
+ActiveRecord::Schema.define(version: 20140908015026) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "previews", force: true do |t|
+    t.integer  "slide_id"
+    t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
