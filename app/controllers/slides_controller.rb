@@ -2,6 +2,8 @@ class SlidesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def show
+    @slide = Slide.find params[:id]
+    @category = @slide.category
   end
 
   def new
