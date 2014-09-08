@@ -32,8 +32,8 @@
     </div>
 
     <div class="slide-infos">
-      <h4>WebRTC技术初探</h4>
-      <p>简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识，简单介绍WebRTC的相关知识。</p>
+      <h4><%= @slide.title %></h4>
+      <p><%= @slide.description %></p>
     </div>
   </div>
 
@@ -55,7 +55,11 @@
 
       <div class="share-panel">
         <ul class="list-group">
-          <li class="list-group-item"><a href="">分类：计算机</a></li>
+          <li class="list-group-item">
+            <%= link_to @category do %>
+              分类：<%= @category.try(:name) %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
