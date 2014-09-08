@@ -35,6 +35,11 @@ gem 'sass-rails', :git => 'https://github.com/zakelfassi/sass-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# ActiveRecord backend for Delayed::Job
+# Delayed::Job: Database based asynchronous priority queue system
+# https://github.com/collectiveidea/delayed_job
+gem 'delayed_job_active_record', '~> 4.0.2'
+
 group :development do
   gem 'quiet_assets', '~> 1.0.3'
 
