@@ -1,39 +1,43 @@
 <div class="row slide-page">
   <div class="col-md-8">
-    <div class="pages-container">
-      <%= render 'pages', slide: @slide %>
-    </div>
+    <% if @slide.previews.any? %>
+      <div class="pages-container">
+        <%= render 'pages', slide: @slide %>
+      </div>
 
-    <div class="operations">
-      <a href="" class='btn btn-sm btn-primary'>
-        <span class="glyphicon glyphicon-thumbs-up"></span>
-        赞(34)
-      </a>
-      <a href="" class='btn btn-sm btn-primary'>
-        <span class="glyphicon glyphicon-pushpin"></span>
-        收藏
-      </a>
+      <div class="operations">
+        <a href="" class='btn btn-sm btn-primary'>
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+          赞(34)
+        </a>
+        <a href="" class='btn btn-sm btn-primary'>
+          <span class="glyphicon glyphicon-pushpin"></span>
+          收藏
+        </a>
 
-      <a href="" class='btn btn-sm btn-danger pull-right share-btn'>
-        <span class="glyphicon glyphicon-share"></span>
-        分享
-      </a>
-    </div>
-    <div class="shares">
-      <p>
-        <a href=""><%= image_tag 'sina.png' %>微博分享</a>
-        <% if @slide.downloadable %>
-          <%= link_to resource_url(@slide.filename), style: 'margin-left: 30px' do %>
-            <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
+        <a href="" class='btn btn-sm btn-danger pull-right share-btn'>
+          <span class="glyphicon glyphicon-share"></span>
+          分享
+        </a>
+      </div>
+      <div class="shares">
+        <p>
+          <a href=""><%= image_tag 'sina.png' %>微博分享</a>
+          <% if @slide.downloadable %>
+            <%= link_to resource_url(@slide.filename), style: 'margin-left: 30px' do %>
+              <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
+            <% end %>
           <% end %>
-        <% end %>
-      </p>
-      <p>
-        复制页面链接：
-        <input type="text" value="<%= request.url %>" disabled>
-        <button class='btn btn-sm'><span class="glyphicon glyphicon-link"></span>复制</button>
-      </p>
-    </div>
+        </p>
+        <p>
+          复制页面链接：
+          <input type="text" value="<%= request.url %>" disabled>
+          <button class='btn btn-sm'><span class="glyphicon glyphicon-link"></span>复制</button>
+        </p>
+      </div>
+    <% else %>
+      <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+    <% end %>
 
     <div class="slide-infos">
       <h4><%= @slide.title %></h4>
