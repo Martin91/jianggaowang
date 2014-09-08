@@ -1,5 +1,6 @@
 class Slide < ActiveRecord::Base
   validates :title, :description, :user_id, :filename, presence: true
+  has_many :previews, dependent: :destroy
   belongs_to :category
   belongs_to :user
 
