@@ -4,6 +4,8 @@ class Slide < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
+  after_create :auto_generate_previews
+
   def persistent_previews
     total_pages = retrieve_total_pages
     watermark_text = Qiniu::Utils.urlsafe_base64_encode("讲稿网：@#{user.name}")
@@ -33,5 +35,9 @@ class Slide < ActiveRecord::Base
     uri = URI("http://#{Qiniu::Bucket}.qiniudn.com/#{filename}?odconv/jpg/info")
     response = JSON.parse Net::HTTP.get(uri)
     response["page_num"]
+  end
+
+  def auto_generate_previews
+    delay.persistent_previews
   end
 end
