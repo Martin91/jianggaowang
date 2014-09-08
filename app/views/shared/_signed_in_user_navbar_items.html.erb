@@ -14,8 +14,16 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">个人账号</li>
-    <li><a href="#">个人首页</a></li>
-    <li><a href="#">修改密码</a></li>
+    <li>
+      <%= link_to profile_path do %>
+        <span class="glyphicon glyphicon-home"></span>我的主页
+      <% end %>
+    </li>
+    <li>
+      <%= link_to edit_profile_path do %>
+        <span class="glyphicon glyphicon-wrench"></span>修改个人资料
+      <% end %>
+    </li>
 
     <li class="divider"></li>
     <li>
