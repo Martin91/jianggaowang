@@ -17,7 +17,9 @@
     <% end %>
   </div>
 
-  <div class='pagination-container'>
-    <%= paginate @slides %>
-  </div>
+  <% unless @paginate == false %>
+    <div class='pagination-container'>
+      <%= paginate @slides %>
+    </div>
+  <% end %>
 </div>
