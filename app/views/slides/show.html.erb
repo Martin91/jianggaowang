@@ -62,6 +62,10 @@
                 <%= @slide.previews.any? ? @slide.previews.count : @slide.retrieve_total_pages %>
               </p>
               <p>
+                总浏览量：
+                <%= @slide.visits_count %>
+              </p>
+              <p>
                 成功发表于：<%= l @slide.created_at, format: :long %>
               </p>
               <p>
