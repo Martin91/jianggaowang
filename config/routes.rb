@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       get :all
       get :hotest
+      get :newest
     end
   end
 
