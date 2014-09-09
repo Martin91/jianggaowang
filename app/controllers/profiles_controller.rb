@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :check_password, only: [:update]
 
   def show
-    @slides = current_user.slides.page(params[:page]).per(params[:per_page] || 9)
+    @slides = current_user.slides.page(params[:page]).per(params[:per_page])
   end
 
   def edit
