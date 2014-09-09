@@ -7,6 +7,7 @@ class Slide < ActiveRecord::Base
   after_create :auto_generate_previews
 
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
+  scope :newest, -> { order(created_at: :desc).limit(12) }
 
   def persistent_previews
     total_pages = retrieve_total_pages
