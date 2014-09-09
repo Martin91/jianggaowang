@@ -32,7 +32,7 @@ class Slide < ActiveRecord::Base
   end
 
   def retrieve_total_pages
-    uri = URI("http://#{Qiniu::Bucket}.qiniudn.com/#{filename}?odconv/jpg/info")
+    uri = URI URI.encode("http://#{Qiniu::Bucket}.qiniudn.com/#{filename}?odconv/jpg/info")
     response = JSON.parse Net::HTTP.get(uri)
     response["page_num"]
   end
