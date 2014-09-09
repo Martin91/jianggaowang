@@ -22,6 +22,16 @@ class SlidesController < ApplicationController
     end
   end
 
+  def search
+    @keyword = params[:keyword]
+
+    if @keyword
+      @slides = Slide.where("title like '%#{@keyword}%'").page(params[:page])
+    else
+      @slides = Slide.page(params[:page])
+    end
+  end
+
   private
   def generate_unique_resource_key
     generated_key = random_string
