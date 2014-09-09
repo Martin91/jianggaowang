@@ -8,100 +8,16 @@
   <h5 class='category-title'><%= @category.name %></h5>
 
   <div>
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
+    <% if @slides.any? %>
+      <div class="row">
+        <%= render @slides %>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'demo.jpg', class: 'img-rounded' %>
-          <div class="caption text-center">
-            <h3><a href="">WebRTC技术初探</a></h3>
-            <p>简单介绍WebRTC技术的相关知识，以及WebRTC中三类主要的API。</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <% else %>
+      <div>对不起，当前分类下暂无讲稿</div>
+    <% end %>
   </div>
 
   <div class='pagination-container'>
-    <ul class="pagination">
-      <li><a href="#">&laquo;</a></li>
-      <li class='active'><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">&raquo;</a></li>
-    </ul>
+    <%= paginate @slides %>
   </div>
 </div>
