@@ -12,7 +12,15 @@ class CategoriesController < ApplicationController
 
   def hotest
     @category = Category.new name: '热门讲稿'
-    @slides = Slide.hotest.page(params[:page])
+    @slides = Slide.hotest
+    @paginate = false
+    render 'show'
+  end
+
+  def newest
+    @category = Category.new name: '最新讲稿'
+    @slides = Slide.newest
+    @paginate = false
     render 'show'
   end
 end
