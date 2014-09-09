@@ -22,7 +22,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: [:show]
+  resources :categories, only: [:show] do
+    collection do
+      get :all
+      get :hotest
+    end
+  end
 
   root 'home#index'
 
