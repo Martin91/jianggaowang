@@ -24,12 +24,13 @@
           <% end %>
 
           <li>
-            <form class="navbar-form navbar-right" role="search">
+            <%= form_tag search_slides_path, method: :get, class: "navbar-form navbar-right", role: "search" do |f| %>
+            <form >
               <div class="form-search search-only">
                 <i class="search-icon glyphicon glyphicon-search"></i>
-                <input type="text" placeholder="搜索讲稿关键字" class="form-control search-query">
+                <%= text_field_tag :keyword, @keyword, placeholder: "搜索讲稿", class: "form-control search-query" %>
               </div>
-            </form>
+            <% end %>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
