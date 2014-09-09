@@ -54,3 +54,8 @@ footer {
     border-color: #DA4453;
   }
 }
+
+.thumbnail > img, .thumbnail a > img {
+  overflow: hidden;
+  height: 150px;
+}
