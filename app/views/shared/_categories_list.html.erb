@@ -2,6 +2,6 @@
   <li><a href="">所有讲稿</a></li>
   <li><a href="">热门讲稿</a></li>
   <% Category.all.each do |category| %>
-    <li><%= link_to category.name, category %></li>
+    <li><%= link_to "#{category.name}（#{category.slides_count}）", category %></li>
   <% end %>
 </ul>
