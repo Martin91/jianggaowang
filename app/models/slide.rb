@@ -40,4 +40,8 @@ class Slide < ActiveRecord::Base
   def auto_generate_previews
     delay.persistent_previews
   end
+
+  def increase_visits_counter
+    increment! :visits_count
+  end
 end

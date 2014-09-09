@@ -1,5 +1,6 @@
 class SlidesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  after_action :increase_slide_visits_count, only: [:show]
 
   def show
     @slide = Slide.includes(:previews).find(params[:id])
@@ -61,5 +62,11 @@ class SlidesController < ApplicationController
     put_policy.mime_limit = 'application/pdf'
 
     @uptoken = Qiniu::Auth.generate_uptoken(put_policy)
+  end
+
+  def increase_slide_visits_count
+    unless request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+      @slide.increase_visits_counter
+    end
   end
 end
