@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :slides, only: [:show, :new, :create] do
     collection do
       get 'upload_result'
+      get 'search'
     end
   end
 
