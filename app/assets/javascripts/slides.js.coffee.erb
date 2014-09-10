@@ -5,3 +5,12 @@ $(document).on 'page:reloaded', ->
       height:0.8
       transition: 'flash'
       swipe: true
+
+  $likeSlideBtn = $('#like_slide_btn')
+  $likeSlideBtn
+    .on 'ajax:error', (xhr, data) ->
+      noty({text: data.responseJSON.message})
+    .on 'ajax:success', (xhr, data) ->
+      $('#likes_count').text(data.likes_count)
+      $likeSlideBtn.attr('disabled', 'disabled')
+
