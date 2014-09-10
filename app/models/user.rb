@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   attr_accessor :original_password
 
   has_many :slides, dependent: :destroy
+  has_many :likes
+  has_many :liking_slides, through: :likes, source: :slide
 
   validates :name, :email, presence: true, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
