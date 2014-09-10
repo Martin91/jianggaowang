@@ -21,9 +21,9 @@ class NotificationsController < ApplicationController
   #     "#{Qiniu::NotificationHost}/notifications/persistance_finished/:secret_token"
   def persistance_finished
     persistent_id, code = params[:id], params[:code]
-    if code.zero?  # successful pfop
-      slide = Slide.find_by persistent_id: persistent_id
+    slide = Slide.find_by persistent_id: persistent_id
 
+    if code.zero?  # successful pfop
       items = params[:items]
       items.each do |item|
         if item[:code].zero?  # this item is saved
