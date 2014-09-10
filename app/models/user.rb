@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
   def liked_slide?(slide)
     liking_slides.include? slide
   end
+
+  def collected_slide?(slide)
+    collecting_slides.include? slide
+  end
 end
