@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      flash[:danger] = "请先登录"
-      redirect_to login_path
+      if request.xhr?
+        render json: {message: "请先登录后再执行操作！"}, status: 403
+      else
+        flash[:danger] = "请先登录"
+        redirect_to login_path
+      end
     end
   end
 
