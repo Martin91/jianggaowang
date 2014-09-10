@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :slides, dependent: :destroy
   has_many :likes
   has_many :liking_slides, through: :likes, source: :slide
+  has_many :collections
+  has_many :collecting_slides, through: :collections, source: :slide
 
   validates :name, :email, presence: true, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
