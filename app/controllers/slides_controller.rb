@@ -1,5 +1,5 @@
 class SlidesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :like, :collect]
   after_action :increase_slide_visits_count, only: [:show]
 
   def show
@@ -12,6 +12,15 @@ class SlidesController < ApplicationController
     generate_uptoken @resource_key
   end
 
+  def like
+    slide = Slide.find params[:id]
+    slide.likes.build user: current_user
+    if slide.save
+      render json: { likes_count: slide.reload.likes_count }
+    else
+      render json: { message: "您已经为讲稿“#{slide.title}”点过赞，请不要重复操作" }, status: 406
+    end
+  end
   def upload_result
     if (slide = Slide.find_by filename: params[:resource_key])
       flash[:success] = "讲稿#{slide.title}上传成功"
