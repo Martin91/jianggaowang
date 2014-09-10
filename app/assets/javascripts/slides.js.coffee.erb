@@ -14,3 +14,10 @@ $(document).on 'page:reloaded', ->
       $('#likes_count').text(data.likes_count)
       $likeSlideBtn.attr('disabled', 'disabled')
 
+  $collectSlideBtn = $('#collect_slide_btn')
+  $collectSlideBtn
+    .on 'ajax:error', (xhr, data) ->
+      noty({text: data.responseJSON.message})
+    .on 'ajax:success', (xhr, data) ->
+      $('#collections_count').text(data.collections_count)
+      $collectSlideBtn.attr('disabled', 'disabled')
