@@ -21,6 +21,17 @@ class SlidesController < ApplicationController
       render json: { message: "您已经为讲稿“#{slide.title}”点过赞，请不要重复操作" }, status: 406
     end
   end
+
+  def collect
+    slide = Slide.find params[:id]
+    slide.collections.build user: current_user
+    if slide.save
+      render json: { collections_count: slide.reload.collections_count }
+    else
+      render json: { message: "您已经收藏讲稿“#{slide.title}”，请不要重复操作" }, status: 406
+    end
+  end
+
   def upload_result
     if (slide = Slide.find_by filename: params[:resource_key])
       flash[:success] = "讲稿#{slide.title}上传成功"
