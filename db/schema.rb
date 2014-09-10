@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910141036) do
+ActiveRecord::Schema.define(version: 20140910141636) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -66,8 +66,9 @@ ActiveRecord::Schema.define(version: 20140910141036) do
     t.boolean  "downloadable"
     t.string   "persistent_id"
     t.string   "persistent_state"
-    t.integer  "visits_count",     default: 0
-    t.integer  "likes_count",      default: 0
+    t.integer  "visits_count",      default: 0
+    t.integer  "likes_count",       default: 0
+    t.integer  "collections_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
