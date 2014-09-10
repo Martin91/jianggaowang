@@ -87,3 +87,5 @@ end
 gem 'sutui', github: 'beansmile/sutui'
 
 gem 'qiniu', '~> 6.2.1'
+
+gem 'noty-rails', '~> 2.2.2'

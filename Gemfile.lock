@@ -133,6 +133,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
     netrc (0.7.7)
+    noty-rails (2.2.2)
     polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -235,6 +236,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.16.1)
   mysql2
+  noty-rails (~> 2.2.2)
   pry (~> 0.10.1)
   pry-debugger (~> 0.2.3)
   pry-rails (~> 0.3.2)
