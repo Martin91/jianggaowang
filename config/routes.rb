@@ -21,6 +21,11 @@ Rails.application.routes.draw do
       get 'upload_result'
       get 'search'
     end
+
+    member do
+      post 'like'
+      post 'collect'
+    end
   end
 
   resources :categories, only: [:show] do
