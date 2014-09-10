@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def friendly_bio
     bio || "这个讲师暂未留下任何自我介绍"
   end
+
+  def liked_slide?(slide)
+    liking_slides.include? slide
+  end
 end
