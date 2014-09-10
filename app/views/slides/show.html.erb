@@ -6,11 +6,10 @@
       </div>
 
       <div class="operations">
-        <a href="" class='btn btn-sm btn-primary pull-right' style='margin-left: 5px;'>
+        <%= link_to collect_slide_path(@slide), id: 'collect_slide_btn', class: 'btn btn-sm btn-primary pull-right', style: 'margin-left: 5px;', method: :post, remote: true do %>
           <span class="glyphicon glyphicon-pushpin"></span>
           收藏
-        </a>
-        <a href="" class='btn btn-sm btn-primary pull-right'>
+        <% end %>
         <%= link_to like_slide_path(@slide), id: 'like_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.liked_slide?(@slide), method: :post, remote: true do %>
           <span class="glyphicon glyphicon-thumbs-up"></span>
           赞 (<span id='likes_count'><%= @slide.likes_count %></span>)
