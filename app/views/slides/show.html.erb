@@ -11,9 +11,11 @@
           收藏
         </a>
         <a href="" class='btn btn-sm btn-primary pull-right'>
+        <%= link_to like_slide_path(@slide), id: 'like_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.liked_slide?(@slide), method: :post, remote: true do %>
           <span class="glyphicon glyphicon-thumbs-up"></span>
-          赞(34)
-        </a>
+          赞 (<span id='likes_count'><%= @slide.likes_count %></span>)
+        <% end %>
+
         <div class="clearfix"></div>
       </div>
     <% else %>
