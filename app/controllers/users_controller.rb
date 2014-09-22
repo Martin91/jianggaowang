@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
   def show
+    @user = User.find params[:id]
+
+    if current_user && current_user == @user
+      redirect_to profile_path
+    else
+      @slides = @user.slides.page(params[:page])
+    end
   end
 
   def new
