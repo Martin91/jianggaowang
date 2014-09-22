@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       post 'collect'
 
       get 'process_retrieve'
+      get 'manual_process'
     end
   end
 
