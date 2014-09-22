@@ -14,6 +14,14 @@ class Slide < ActiveRecord::Base
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
   scope :newest, -> { order(created_at: :desc).limit(12) }
 
+  def truncated_title
+    if title =~ /\p{Han}+/u   # 包含中文
+      title.truncate(14)
+    else
+      title.truncate(25)
+    end
+  end
+
   def persistent_previews
     total_pages = retrieve_total_pages
     watermark_text = Qiniu::Utils.urlsafe_base64_encode("讲稿网：@#{user.name}")
