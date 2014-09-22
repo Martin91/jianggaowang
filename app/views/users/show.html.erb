@@ -32,10 +32,10 @@
             <h4 class="list-group-item-heading">详细资料</h4>
             <div class="list-group-item-text">
               <p>
-                总的讲稿数：<%= current_user.slides.count %>
+                总的讲稿数：<%= @user.slides.count %>
               </p>
               <p>
-                加入讲稿网于：<%= l current_user.created_at.to_date, format: :long %>
+                加入讲稿网于：<%= l @user.created_at.to_date, format: :long %>
               </p>
             </div>
           </li>
