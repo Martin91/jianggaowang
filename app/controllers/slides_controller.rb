@@ -38,7 +38,17 @@ class SlidesController < ApplicationController
       @slide.retrieve_persistent_state
     end
 
-    redirect_to @slide
+    redirect_to :back
+  end
+
+  def manual_process
+    @slide = current_user.slides.find_by id: params[:id]
+    if @slide
+      flash[:warning] = "您的讲稿已经重新提交处理，稍后进入处理状态，请勿重复提交处理"
+      @slide.delay.persistent_previews
+    end
+
+    redirect_to :back
   end
 
   def upload_result
