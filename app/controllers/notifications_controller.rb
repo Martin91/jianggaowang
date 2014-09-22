@@ -20,20 +20,8 @@ class NotificationsController < ApplicationController
   #   2. use a sercet token to verify valid requests, for example:
   #     "#{Qiniu::NotificationHost}/notifications/persistance_finished/:secret_token"
   def persistance_finished
-    persistent_id, code = params[:id], params[:code]
-    slide = Slide.find_by persistent_id: persistent_id
-
-    if code.zero?  # successful pfop
-      items = params[:items]
-      items.each do |item|
-        if item[:code].zero?  # this item is saved
-          Preview.create slide: slide, filename: item[:key]
-        end
-      end
-      slide.update_column :persistent_state, :finished
-    else
-      slide.update_column :persistent_state, :failed
-    end
+    slide = Slide.find_by persistent_id: params[:id]
+    slide.parse_slide_persistent_results(params) if slide
 
     render json: {status: 'confirmed'}
   end

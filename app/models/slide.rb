@@ -22,6 +22,13 @@ class Slide < ActiveRecord::Base
     end
   end
 
+  def retrieve_persistent_state
+    return unless persistent_state == 'transforming'
+
+    response = Qiniu::Fop::Persistance.prefop persistent_id
+    parse_slide_persistent_results response.second.with_indifferent_access
+  end
+
   def persistent_previews
     total_pages = retrieve_total_pages
     watermark_text = Qiniu::Utils.urlsafe_base64_encode("讲稿网：@#{user.name}")
@@ -59,5 +66,21 @@ class Slide < ActiveRecord::Base
 
   def increase_visits_counter
     increment! :visits_count
+  end
+
+  def parse_slide_persistent_results(params)
+    code = params[:code]
+
+    if code.zero? || code == 4 # successful pfop or callback failed
+      items = params[:items]
+      items.each do |item|
+        if item[:code].zero?  # this item is saved
+          self.previews.create filename: item[:key]
+        end
+      end
+      update_column :persistent_state, :finished
+    else
+      update_column :persistent_state, :failed
+    end
   end
 end

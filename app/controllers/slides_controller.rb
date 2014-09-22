@@ -32,6 +32,15 @@ class SlidesController < ApplicationController
     end
   end
 
+  def process_retrieve
+    @slide = current_user.slides.find_by id: params[:id]
+    if @slide
+      @slide.retrieve_persistent_state
+    end
+
+    redirect_to @slide
+  end
+
   def upload_result
     if (slide = Slide.find_by filename: params[:resource_key])
       flash[:success] = "讲稿#{slide.title}上传成功"
