@@ -18,7 +18,11 @@
         <div class="clearfix"></div>
       </div>
     <% else %>
-      <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+      <% if current_user && current_user == @slide.user %>
+        <%= render 'manual_actions', slide: @slide %>
+      <% else %>
+        <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+      <% end %>
     <% end %>
 
     <div class="slide-infos">

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     member do
       post 'like'
       post 'collect'
+
+      get 'process_retrieve'
     end
   end
 
