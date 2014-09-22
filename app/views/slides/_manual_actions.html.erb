@@ -2,7 +2,7 @@
   <h4>对不起，您的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
   您可以：
   <%= link_to "刷新处理状态", process_retrieve_slide_path(slide) %>
-<% elsif slide.persistent_state == 'failed' %>
+<% elsif slide.persistent_id.nil? || slide.persistent_state == 'failed' %>
   <h4>对不起，您的讲稿处理失败。</h4>
   您可以尝试：
   <%= link_to "重新处理", manual_process_slide_path(slide) %>
