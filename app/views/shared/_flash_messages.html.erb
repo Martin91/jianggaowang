@@ -1,7 +1,9 @@
-<% flash.each do |_class, message| %>
-  <div class="alert alert-<%= _class %> alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<script>
+  <% if flash.any? %>
+    Jianggaowang.messages = {}
+  <% end %>
 
-    <%= message %>
-  </div>
-<% end %>
+  <% flash.each do |_class, message| %>
+    Jianggaowang.messages['<%= _class %>'] = "<%= message %>";
+  <% end %>
+</script>
