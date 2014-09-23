@@ -79,7 +79,7 @@ class Slide < ActiveRecord::Base
       items = params[:items]
       items.each do |item|
         if item[:code].zero?  # this item is saved
-          self.previews.create filename: item[:key]
+          self.previews.find_or_create_by filename: item[:key]
         end
       end
       update_column :persistent_state, :finished
