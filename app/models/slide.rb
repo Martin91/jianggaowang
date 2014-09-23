@@ -26,6 +26,8 @@ class Slide < ActiveRecord::Base
     return unless persistent_state == 'transforming'
 
     response = Qiniu::Fop::Persistance.prefop persistent_id
+    # The second value returned from api is the target response body,
+    # see: https://github.com/qiniu/ruby-sdk/blob/master/lib/qiniu/http.rb#L125
     parse_slide_persistent_results response.second.with_indifferent_access
   end
 
@@ -55,6 +57,10 @@ class Slide < ActiveRecord::Base
         update_attributes persistent_id: persistent_id, persistent_state: "transforming"
         break
       end
+    end
+
+    unless persistent_id
+      update_attribute :persistent_state, :failed
     end
   end
 
