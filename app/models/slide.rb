@@ -46,11 +46,15 @@ class Slide < ActiveRecord::Base
     pfop_policy = Qiniu::Fop::Persistance::PfopPolicy.new(bucket, filename, pfops, notify_url)
     pfop_policy.pipeline = Qiniu::MPSQueue
 
-    response = Qiniu::Fop::Persistance.pfop pfop_policy
-    persistent_id = response[1]["persistentId"]
+    # Retry at most 3 times
+    3.times do
+      response = Qiniu::Fop::Persistance.pfop pfop_policy
+      persistent_id = response[1]["persistentId"]
 
-    if persistent_id
-      update_attributes persistent_id: persistent_id, persistent_state: "transforming"
+      if persistent_id
+        update_attributes persistent_id: persistent_id, persistent_state: "transforming"
+        break
+      end
     end
   end
 
