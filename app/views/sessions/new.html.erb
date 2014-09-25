@@ -22,6 +22,12 @@
       <div class="input-group submit-btn-container">
         <%= f.submit "登录", class: 'btn btn-primary' %>
       </div>
+
+      <p>
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        忘记密码？点击
+        <%= link_to "重置密码", reset_user_passwords_path %>
+      </p>
     <% end %>
   </div>
 </div>
