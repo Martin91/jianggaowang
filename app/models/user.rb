@@ -31,4 +31,10 @@ class User < ActiveRecord::Base
     self.reset_password_token_expires_at = Time.current + 30.minutes
     save
   end
+
+  def clear_reset_password_token
+    self.reset_password_token = nil
+    self.reset_password_token_expires_at = nil
+    save
+  end
 end
