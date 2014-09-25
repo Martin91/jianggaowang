@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
+    session[:return_to] = request.referrer
   end
 
   def create
@@ -29,6 +30,6 @@ class SessionsController < ApplicationController
       flash[:warning] = '您还没有登录，退出登录操作无效'
     end
 
-    redirect_to :back
+    redirect_to root_path
   end
 end
