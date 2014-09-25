@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
       if request.xhr?
         render json: {message: "请先登录后再执行操作！"}, status: 403
       else
+        session["return_to"] = request.path
+
         flash[:danger] = "请先登录"
         redirect_to login_path
       end
@@ -24,5 +26,9 @@ class ApplicationController < ActionController::Base
 
   def render_404
     render file: 'public/404.html', layout: false
+  end
+
+  def after_sign_in_path
+    session["return_to"] || root_path
   end
 end

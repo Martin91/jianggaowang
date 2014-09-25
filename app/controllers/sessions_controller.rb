@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         flash[:success] = "登录成功"
         session[:user_id] = @user.id
 
-        redirect_to root_path
+        redirect_to after_sign_in_path
       else
         flash[:warning] = "密码错误，请重新输入"
         render 'new'
