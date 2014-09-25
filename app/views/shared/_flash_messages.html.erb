@@ -1,7 +1,5 @@
 <script>
-  <% if flash.any? %>
-    Jianggaowang.messages = {}
-  <% end %>
+  Jianggaowang.messages = {}
 
   <% flash.each do |_class, message| %>
     Jianggaowang.messages['<%= _class %>'] = "<%= message %>";
