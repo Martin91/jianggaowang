@@ -12,6 +12,17 @@ class SlidesController < ApplicationController
     generate_uptoken @resource_key
   end
 
+  def destroy
+    @slide = Slide.find params[:id]
+    if @slide.destroy
+      flash[:info] = "讲稿《#{@slide.title}》删除成功！"
+    else
+      flash[:warning] = "讲稿无法删除，请稍后重试"
+    end
+
+    redirect_to :back
+  end
+
   def like
     slide = Slide.find params[:id]
     slide.likes.build user: current_user
