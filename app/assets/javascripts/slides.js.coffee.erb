@@ -21,3 +21,5 @@ $(document).on 'page:reloaded', ->
     .on 'ajax:success', (xhr, data) ->
       $('#collections_count').text(data.collections_count)
       $collectSlideBtn.attr('disabled', 'disabled')
+
+  $('.delete-slide-link').tooltip({placement: 'top'})
