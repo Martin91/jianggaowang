@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       if request.xhr?
         render json: {message: "请先登录后再执行操作！"}, status: 403
       else
-        session["return_to"] = request.path
+        session[:return_to] = request.path
 
         flash[:danger] = "请先登录"
         redirect_to login_path
@@ -29,6 +29,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path
-    session["return_to"] || root_path
+    return_to = session[:return_to] || root_path
+
+    # reset after used
+    session[:return_to] = nil
+
+    return_to
   end
 end
