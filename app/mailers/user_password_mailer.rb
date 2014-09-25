@@ -6,7 +6,9 @@ class UserPasswordMailer < ActionMailer::Base
   #
   #   en.user_password.reset_password.subject
   #
-  def reset_password(receiver)
-    mail to: 'hongzeqin@gmail.com'
+  def reset_password(user)
+    @user = user
+
+    mail to: user.email
   end
 end
