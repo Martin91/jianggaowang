@@ -7,6 +7,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user_passwords, only: [:edit, :update] do
+    collection do
+      get :reset
+      post :create_new
+    end
+  end
+
   resource :profile, only: [:show, :update, :edit]
 
   get '/login' => 'sessions#new'
