@@ -1,6 +1,6 @@
 <div class="col-sm-6 col-md-4">
   <div class="thumbnail">
-    <%= image_tag slide_first_or_default_preview_url(slide), class: 'img-rounded' %>
+    <%= link_to image_tag(slide_first_or_default_preview_url(slide), class: 'img-rounded'), slide %>
     <div class="caption text-center">
       <h3><%= link_to slide.truncated_title, slide, data: { 'no-turbolink' => true }, title: slide.title %></h3>
       <p>
