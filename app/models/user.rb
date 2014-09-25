@@ -25,4 +25,10 @@ class User < ActiveRecord::Base
   def collected_slide?(slide)
     collecting_slides.include? slide
   end
+
+  def generate_reset_password_token
+    self.reset_password_token = SecureRandom.urlsafe_base64
+    self.reset_password_token_expires_at = Time.current + 30.minutes
+    save
+  end
 end
