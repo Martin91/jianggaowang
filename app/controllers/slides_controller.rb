@@ -8,7 +8,7 @@ class SlidesController < ApplicationController
   end
 
   def new
-    @resource_key = generate_unique_resource_key + '.pdf'
+    @resource_key = "slides/#{generate_unique_resource_key}.pdf"
     generate_uptoken @resource_key
   end
 
