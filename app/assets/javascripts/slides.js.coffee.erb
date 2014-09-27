@@ -57,7 +57,7 @@ $(document).on 'page:reloaded', ->
           .css('width', 0)
           .attr('aria-valuenow', 0)
           .text('')
-        startCreateSlide(data.result.key)
+        goToSlidePage(slideId = data.result.slide.id)
 
       failure: (e, data) ->
         console.log data
@@ -65,3 +65,7 @@ $(document).on 'page:reloaded', ->
     $selectFileBtn.click ->
       $('#file').click()
       false
+
+    goToSlidePage = (slideId) ->
+      location.href = "http://#{location.host}/slides/#{slideId}"
+
