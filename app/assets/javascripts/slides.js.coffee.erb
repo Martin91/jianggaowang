@@ -23,3 +23,45 @@ $(document).on 'page:reloaded', ->
       $collectSlideBtn.attr('disabled', 'disabled')
 
   $('.delete-slide-link').tooltip({placement: 'top'})
+
+  $uploadForm = $('form#upload_form')
+  if $uploadForm.length
+    $selectFileBtn = $('#select_file')
+    $uploadBtn = $('#upload')
+    $uploadProgressBarContainer = $('#upload_progress_bar')
+    $uploadProgressBar = $uploadProgressBarContainer.find('.progress-bar')
+
+    $uploadForm.fileupload
+      autoUpload: false
+      add: (e, data) ->
+        selectedFileName = data.files[0].name
+        $uploadProgressBar.text selectedFileName
+        $selectFileBtn.text(selectedFileName)
+        data.context = $uploadBtn.click ->
+          $(this).text('上传讲稿中').attr('disabled', 'disabled')
+          data.submit()
+          false
+
+      progressall: (e, data) ->
+        progress = parseInt(data.loaded / data.total * 100, 10)
+
+        $uploadProgressBarContainer.fadeIn()
+        $uploadProgressBar
+          .css('width', "#{progress}%")
+          .attr('aria-valuenow', progress)
+
+      done: (e, data) ->
+        console.log data
+        $uploadProgressBarContainer.fadeOut()
+        $uploadProgressBar
+          .css('width', 0)
+          .attr('aria-valuenow', 0)
+          .text('')
+        startCreateSlide(data.result.key)
+
+      failure: (e, data) ->
+        console.log data
+
+    $selectFileBtn.click ->
+      $('#file').click()
+      false
