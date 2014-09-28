@@ -69,3 +69,15 @@ iframe {
 .slide-form-container {
   margin-bottom: 60px;
 }
+
+#upload_form {
+  #file {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  #upload_progress_bar {
+    display: none;
+  }
+}

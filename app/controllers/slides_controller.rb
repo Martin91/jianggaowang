@@ -8,7 +8,7 @@ class SlidesController < ApplicationController
   end
 
   def new
-    @resource_key = generate_unique_resource_key + '.pdf'
+    @resource_key = "slides/#{generate_unique_resource_key}.pdf"
     generate_uptoken @resource_key
   end
 
@@ -106,7 +106,6 @@ class SlidesController < ApplicationController
     host = "http://" + host unless host =~ /\Ahttp/
 
     put_policy = Qiniu::Auth::PutPolicy.new Qiniu::Bucket
-    put_policy.return_url = upload_result_slides_url resource_key: resource_key
 
     put_policy.callback_url = host + slide_uploaded_notifications_path
     put_policy.callback_body = [

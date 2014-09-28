@@ -13,6 +13,7 @@
  *= require bootflat
  *= require galleria.classic
  *= require animate
+ *= require jquery.fileupload-ui
  *= require_tree .
  *= require_self
  */
