@@ -61,10 +61,10 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
 
   gem 'pry-debugger', '~> 0.2.3'
-
-  # Provide web UI for sidekiq
-  gem 'sinatra', '>= 1.3.0', :require => nil
 end
+
+# Provide web UI for sidekiq
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 # Use unicorn as the app server
 # gem 'unicorn'
