@@ -11,7 +11,7 @@ class NotificationsController < ApplicationController
     if slide.save
       render json: {status: 'success', slide: slide}
     else
-      render json: {status: 'failed', errors: slide.errors}
+      render json: {status: 'failed', errors: slide.errors.full_messages.join(',')}
     end
   end
 
