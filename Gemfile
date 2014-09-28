@@ -35,18 +35,6 @@ gem 'sass-rails', :git => 'https://github.com/zakelfassi/sass-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Daemons provides an easy way to wrap existing ruby scripts (for example a
-# self-written server) to be run as a daemon and to be controlled by simple
-# start/stop/restart commands
-# http://daemons.rubyforge.org/
-# Note: daemons in this repo is used to work with delayed_job
-gem 'daemons', '~> 1.1.9'
-
-# ActiveRecord backend for Delayed::Job
-# Delayed::Job: Database based asynchronous priority queue system
-# https://github.com/collectiveidea/delayed_job
-gem 'delayed_job_active_record', '~> 4.0.2'
-
 gem 'carrierwave', '~> 0.10.0'
 gem 'carrierwave-qiniu', '~> 0.1.3'
 
@@ -73,6 +61,9 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
 
   gem 'pry-debugger', '~> 0.2.3'
+
+  # Provide web UI for sidekiq
+  gem 'sinatra', '>= 1.3.0', :require => nil
 end
 
 # Use unicorn as the app server
@@ -91,3 +82,5 @@ gem 'qiniu', '~> 6.2.1'
 gem 'noty-rails', '~> 2.2.2'
 
 gem 'jquery-fileupload-rails', '~> 0.4.1'
+
+gem 'sidekiq', '~> 3.2.5'
