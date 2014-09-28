@@ -37,6 +37,7 @@ $(document).on 'page:reloaded', ->
         selectedFileName = data.files[0].name
         $uploadProgressBar.text selectedFileName
         $selectFileBtn.text(selectedFileName)
+        $uploadBtn.unbind 'click'  # unbind previours bindings, otherwise the whole upload queue will be uploaded
         data.context = $uploadBtn.click ->
           $(this).text('上传讲稿中').attr('disabled', 'disabled')
           data.submit()
