@@ -52,13 +52,7 @@ $(document).on 'page:reloaded', ->
           .attr('aria-valuenow', progress)
 
       done: (e, data) ->
-        console.log data
-        $uploadProgressBarContainer.fadeOut()
-        $uploadProgressBar
-          .css('width', 0)
-          .attr('aria-valuenow', 0)
-          .text('')
-        goToSlidePage(slideId = data.result.slide.id)
+        slideUploadDoneHandler(data)
 
       failure: (e, data) ->
         console.log data
@@ -66,6 +60,29 @@ $(document).on 'page:reloaded', ->
     $selectFileBtn.click ->
       $('#file').click()
       false
+
+    slideUploadDoneHandler = (data) ->
+      hideAndResetProgressBar()
+      resetUploadBtn()
+
+      console.log data
+      result = data.result
+      if result.status == 'success'
+        goToSlidePage(result.slide.id)
+      else
+        noty
+          text: result.errors
+          type: 'warning'
+
+    hideAndResetProgressBar = ->
+      $uploadProgressBarContainer.fadeOut()
+      $uploadProgressBar
+        .css('width', 0)
+        .attr('aria-valuenow', 0)
+        .text('')
+
+    resetUploadBtn = ->
+      $uploadBtn.text('重新上传').removeAttr('disabled')
 
     goToSlidePage = (slideId) ->
       location.href = "http://#{location.host}/slides/#{slideId}"
