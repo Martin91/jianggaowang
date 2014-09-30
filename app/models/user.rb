@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   validates :name, :email, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  validates :password, length: { minimum: 8 }, if: -> { changes.include?(:password) }
+  validates :password, length: { minimum: 8 }, if: -> { changes.include?(:password_digest) }
   validates_uniqueness_of :name, :email, case_sensitive: false
 
   def friendly_bio
