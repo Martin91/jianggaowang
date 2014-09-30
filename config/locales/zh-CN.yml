@@ -101,7 +101,7 @@ zh-CN:
       accepted: 必须是可被接受的
       blank: 不能为空
       present: 必须是空白
-      confirmation: 与确认值不匹配
+      confirmation: 不匹配
       empty: 不能留空
       equal_to: 必须等于 %{count}
       even: 必须为双数
