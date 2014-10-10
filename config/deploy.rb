@@ -2,7 +2,7 @@
 lock '3.2.1'
 
 set :application, 'jianggaowang'
-set :repo_url, 'git@gitcafe.com:Martin_288/jianggao.git'
+set :repo_url, 'git@github.com:Martin91/jianggaowang.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
